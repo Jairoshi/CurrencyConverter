@@ -112,19 +112,14 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun updateResult(currencyFrom: Currency, currencyTo: Currency){
         val textView : TextView = findViewById(R.id.result_text)
-        val result : Double = currencyTo.fromDollar(currencyFrom.toDollar(getNumber()))
+        val number : Double = inputText.toDoubleOrNull() ?: 0.0
+        val result : Double = currencyFrom.toCurrency(currencyTo, number)
         textView.text = getString(R.string.dollar_sign, String.format("%.2f", result))
     }
 
-    private fun getNumber(): Double{
-        val number : Double? = inputText.toDoubleOrNull()
-        return number ?: 0.0
-    }
-
-
     private fun addNumber(c: CharSequence){
         val inputTextView : TextView = findViewById(R.id.input_text)
-        if(!(inputText == "" && "$c" == "0")) {
+        if((inputText != "" || "$c" != "0") && inputText.count() <= 18) {
             inputText = "$inputText$c"
             inputTextView.text = getString(R.string.dollar_sign, inputText)
         }

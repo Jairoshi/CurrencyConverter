@@ -5,9 +5,7 @@ package com.hiroshi.melendez.currencyconverter.model
  */
 data class Currency(val name: String, val exchangeRate: Double,val flagID: Int){
 
-   fun toDollar(number: Double): Double = number * exchangeRate
-
-   fun fromDollar(number: Double): Double = number / exchangeRate
+   fun toCurrency(currencyOut: Currency, number: Double): Double = number * exchangeRate/currencyOut.exchangeRate
 
    override fun toString(): String {
       return name
