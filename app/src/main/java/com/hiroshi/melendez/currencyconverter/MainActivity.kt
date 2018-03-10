@@ -113,7 +113,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun updateResult(currencyFrom: Currency, currencyTo: Currency){
         val textView : TextView = findViewById(R.id.result_text)
         val result : Double = currencyTo.fromDollar(currencyFrom.toDollar(getNumber()))
-        textView.text = "$" + String.format("%.2f", result)
+        textView.text = getString(R.string.dollar_sign, String.format("%.2f", result))
     }
 
     private fun getNumber(): Double{
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val inputTextView : TextView = findViewById(R.id.input_text)
         if(!(inputText == "" && "$c" == "0")) {
             inputText = "$inputText$c"
-            inputTextView.text = "$$inputText"
+            inputTextView.text = getString(R.string.dollar_sign, inputText)
         }
     }
 
@@ -134,7 +134,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val inputTextView : TextView = findViewById(R.id.input_text)
         if(!inputText.contains('.', false)){
             inputText = if (inputText == "") "0." else "$inputText."
-            inputTextView.text = getString(R.string.dollar_sign) + inputText
+            inputTextView.text = getString(R.string.dollar_sign, inputText)
         }
     }
 

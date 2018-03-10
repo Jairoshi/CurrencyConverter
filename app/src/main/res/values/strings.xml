@@ -13,7 +13,7 @@
     <string name="_8">8</string>
     <string name="_9">9</string>
     <string name="delete">Del</string>
-    <string name="dollar_sign">$</string>
+    <string name="dollar_sign">$%1$s</string>
     <string name="point">.</string>
     <string name="to">TO</string>
     <string name="flag">flag</string>
